@@ -3,7 +3,6 @@ import {Header} from './Header/Header';
 export const App = () => {
   return (
     <>
-    <Header text="Logo"/>
     <div
       style={{
         height: '100vh',
