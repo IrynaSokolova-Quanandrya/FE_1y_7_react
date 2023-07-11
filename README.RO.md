@@ -133,14 +133,30 @@ jsx <BrowserRouter basename="/your_repo_name"> <App /> </BrowserRouter>
 9. Основи композицій компонентів
    - props.children
 
+## компонент `Painting`
+
 ```html
-<img src="" alt="" width="480" />
-<h2></h2>
-<p>
-  Автор:
-  <a href="">
-    <p>Доступність:</p>
-    <button type="button">Додати в кошик</button></a
-  >
-</p>
+<div>
+  <img src="" alt="" width="480" />
+  <h2></h2>
+  <p>Автор: <a href=""></a></p>
+  <p>Ціна: грн</p>
+  <p>Доступність: закінчується чи є в наявності</p>
+  <button type="button">Додати в кошик</button>
+</div>
 ```
+
+```html
+<ul>
+  <li>Painting</li>
+  ...
+</ul>
+```
+
+````html
+<div style="outline: 1px solid tomato;">
+  <h2></h2>
+  Контент
+</div>
+```
+````
