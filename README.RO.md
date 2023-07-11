@@ -132,3 +132,15 @@ jsx <BrowserRouter basename="/your_repo_name"> <App /> </BrowserRouter>
    - Keys
 9. Основи композицій компонентів
    - props.children
+
+```html
+<img src="" alt="" width="480" />
+<h2></h2>
+<p>
+  Автор:
+  <a href="">
+    <p>Доступність:</p>
+    <button type="button">Додати в кошик</button></a
+  >
+</p>
+```
