@@ -7,15 +7,15 @@ export const GalleryItem=({
     quantity,
     tag
 })=>{
-    console.log(author);
     return(
         <>
             <img src={itemUrl} alt="" width="480" />
             <h2>{title}</h2>
             <p>Автор: <a href={author}>{tag}</a></p>
             <p>Ціна: {price} грн</p>
-            <p>Доступність: {quantity} закінчується чи є в наявності</p>
+            <p>Доступність: {quantity} {quantity > 5 ? 'є в наявності' : 'закінчується'}</p>
             <button type="button">Додати в кошик</button>
         </>
     )
 }
+
