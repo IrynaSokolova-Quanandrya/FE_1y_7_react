@@ -1,5 +1,6 @@
 import s from './Container.module.css'
 
-export function Container({children}) {
-    return <div className={s.ontainer}>{children}</div>
+export function Container({ children }) {
+  return <div>{children}</div>
 }
+

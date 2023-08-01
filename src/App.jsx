@@ -1,7 +1,7 @@
-import { ColorPicker } from 'components/ColorPicker/Colorpicker';
 import paintings from './paintings.json';
 import GalleryList from 'components/GalleryList/GalleryList';
 import { Container } from 'components/Container/Container';
+import { ColorPicker } from 'components/ColorPicker/Colorpicker';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -13,13 +13,18 @@ const colorPickerOptions = [
 ];
 
 export default function App() {
-  return (    
-      <>   
+
+  return (
+    <>
       <Container>
-          <ColorPicker options={colorPickerOptions}/>
+        <ColorPicker options={colorPickerOptions} />
       </Container>
-        
-        <GalleryList items={paintings} />     
-      </>
+
+      <Container>
+        <GalleryList items={paintings} />
+      </Container>
+
+
+    </>
   )
 }
