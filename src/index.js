@@ -16,7 +16,6 @@ const theme = {
     grey: 'grey',
   }
 }
-
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
