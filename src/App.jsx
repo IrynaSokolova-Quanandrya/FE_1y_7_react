@@ -7,7 +7,7 @@ export const App = () => {
   return (
     <>
       
-      <Counter/>
+      <Counter />
       <GlobalStyle />
     </>
   )
