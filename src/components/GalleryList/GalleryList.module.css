@@ -1,0 +1,8 @@
+.GalleryItemList{
+    display: flex;
+    gap: 30px;
+}
+
+.GalleryItem{
+    width: calc((100% - 30px * 2) / 3);
+}

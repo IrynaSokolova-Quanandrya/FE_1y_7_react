@@ -1,0 +1,27 @@
+.GalleryItem{
+    padding: 15px;
+    background-color: aquamarine;
+}
+
+.GalleryItem .title{
+    color: brown;
+}
+
+.btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 100px;
+    height: 50px;
+}
+
+.red{
+    composes: btn;
+    background-color: red;
+}
+
+.green{
+    composes: btn;
+    background-color: green;
+}
