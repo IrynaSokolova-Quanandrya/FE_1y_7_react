@@ -1,5 +1,7 @@
 import {Component}from 'react';
+import { Buttons } from './Buttons';
 import './Counter.css';
+import { CounterValue } from './CounterValue';
 /**
  * класовий компонент+
  * настідування+
@@ -15,7 +17,7 @@ import './Counter.css';
  * зміна стану (перезапис, від початкового стану)
  * static defaultProps = {
     initialValue: 0,
-  };+
+  };
  * static propTypes = {
     //
   };+
@@ -23,51 +25,48 @@ import './Counter.css';
  * **/
 
 export class Counter extends Component{  
-  // static defaultProps = {
-  //   value: 0,
-  // };
 
-// static propType = {
-//   value: propType.string.isRequired
-// }
+  static defaultProps = {
+    initialValue: 1,
+  };
+
   state = {
-    value: 10,
+    value: 0
   }
 
-  handlerDecrement = (e) => {
-    console.log("Збільшуємо на 1");    
+  handlerIncrement = () => {     
+    // 1. Зміна стану при умові перезаписати значення
+    // this.setState({
+    //   value: 124
+    // })
+   
+    // 2. Зміна стану від попереднього значення
+    this.setState((prevState)=>{
+      return {
+        value: prevState.value + 1
+      }
+    })
   }
 
-  handlerIncrement = (e) => {
-    console.log("Зменшуємо на 2");
+  handlerDecrement = () => {
+    this.setState((prevState)=>{
+      return {
+        value: prevState.value - 1
+      }
+    })
   }
 
   render(){
     const {handlerDecrement, handlerIncrement} = this;
     return(
           <div className="Counter__controls">
-            <span className="Counter__value">{this.state.value}</span>
-          <button type="button" onClick={handlerDecrement}>
-            Збільшити на 1
-          </button>
-          <button type="button" onClick={handlerIncrement}>
-            Зменшити на 1
-          </button>
+          <CounterValue value={this.state.value}/>
+          <Buttons 
+            onDecrement={handlerDecrement}
+            onIncrement={handlerIncrement}/>
         </div>
         )
   }
 }
 
-// export function Counter(){
-//   return(
-//     <div className="Counter__controls">
-//       <span className="Counter__value">0</span>
-//     <button type="button">
-//       Збільшити на 1
-//     </button>
-//     <button type="button">
-//       Зменшити на 1
-//     </button>
-//   </div>
-//   )
-// } 
+

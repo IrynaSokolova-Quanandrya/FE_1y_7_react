@@ -1,13 +1,14 @@
 import {Counter} from 'components/Counter/Counter';
 import { GlobalStyle } from './Global.styled';
+import { Dropdown } from 'components/Dropdown/Dropdown';
 
 
 
 export const App = () => {
   return (
-    <>
-      
-      <Counter />
+    <>    
+    <Dropdown/>
+      {/* <Counter  initialValue= {0}/> */}
       <GlobalStyle />
     </>
   )
