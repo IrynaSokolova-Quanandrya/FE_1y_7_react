@@ -1,20 +1,30 @@
-import s from './ColorPicker.module.css'
+import { Component } from 'react'
+import {Container, Title, Option} from './ColorPicker.styled'
 
-export function ColorPicker({options}) {
-    return (
-        <div className={s.container}>
-            <h2 className={s.title}>Color Picker</h2>
-            <div>
-                {options.map(option => {
-                return <span 
-                        className={s.option}
-                        key={option.label}
-                        style={{backgroundColor: option.color}}
-                        >{option.label}</span>
-                        })}
-            </div>
-        </div>      
-    )
+export class ColorPicker extends Component {
+
+    state = {
+        activeButtonIdx: 0 
+    }
+
+
+    render(){
+        return (
+            <Container>
+                <Title >Color Picker</Title>
+                <div>
+                    {this.props.options.map((option, idx) => {
+                    return <Option 
+                            onClick={()=>{this.setState({activeButtonIdx: idx}
+                                )}}
+                            key={option.label}
+                            style={{backgroundColor: option.color}}
+                            >{option.label}</Option>
+                            })}
+                </div>
+            </Container>      
+        )
+    }
 }
 
 
