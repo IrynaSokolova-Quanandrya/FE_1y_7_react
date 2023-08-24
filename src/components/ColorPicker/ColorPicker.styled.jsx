@@ -16,9 +16,12 @@ export const Option = styled.button`
   height: 60px;
   margin: 8px;
   border: none;
+  background-color: ${props=>props.backgroundColor};
+  transition: transform 250ms linear;
 
-  :hover{
-    transform: translate
+  &:hover{
+    transform: translateY(-50%)
   }
+  
 `
   

@@ -1,12 +1,11 @@
-import { Component } from 'react'
+import { Component } from 'react';
 import {Container, Title, Option} from './ColorPicker.styled'
 
 export class ColorPicker extends Component {
 
     state = {
-        activeButtonIdx: 0 
+        currentOptionIdx: 0
     }
-
 
     render(){
         return (
@@ -15,16 +14,13 @@ export class ColorPicker extends Component {
                 <div>
                     {this.props.options.map((option, idx) => {
                     return <Option 
-                            onClick={()=>{this.setState({activeButtonIdx: idx}
-                                )}}
                             key={option.label}
-                            style={{backgroundColor: option.color}}
+                            backgroundColor={option.color}
                             >{option.label}</Option>
                             })}
                 </div>
-            </Container>      
-        )
-    }
+            </Container> 
+    )}
 }
 
 
