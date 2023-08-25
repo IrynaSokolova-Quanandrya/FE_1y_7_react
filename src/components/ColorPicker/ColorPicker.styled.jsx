@@ -15,13 +15,14 @@ export const Option = styled.button`
   width: 80px;
   height: 60px;
   margin: 8px;
-  border: none;
-  background-color: ${props=>props.backgroundColor};
-  transition: transform 250ms linear;
+  background-color: ${props=>props.backgroundcolor};
+  transition: scale 250ms linear;
+  border-radius: 50%;
+
+  border: ${({currentidx, idx, theme})=> `3px solid ${theme.colors.success}` }
 
   &:hover{
-    transform: translateY(-50%)
+    transform: scale(1.1)
   }
-  
 `
   
