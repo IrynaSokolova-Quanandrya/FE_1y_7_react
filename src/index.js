@@ -14,6 +14,8 @@ const theme = {
     success: 'green',
     error: 'red',
     grey: 'grey',
+    button: '#21a912',
+    accent: ' #7112ba'
   }
 }
 ReactDOM.render(

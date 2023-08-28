@@ -5,6 +5,7 @@
   --success: green;
   --error: red;
   --grey: rgb(233, 215, 215);
+  --accent: #7112ba;
 }
 
 body {

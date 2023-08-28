@@ -1,15 +1,15 @@
 import React from 'react';
-import './TodoList.css';
+import {List, Item, Text, Button} from './TodoList.styled.jsx';
 
 const TodoList = ({ todos, onDeleteTodo }) => (
-  <ul className="TodoList">
+  <List >
     {todos.map(({ id, text }) => (
-      <li key={id} className="TodoList__item">
-        <p className="TodoList__text">{text}</p>
-        <button onClick={() => onDeleteTodo(id)}>Удалить</button>
-      </li>
+      <Item key={id}>
+        <Text>{text}</Text>
+        <Button onClick={() => onDeleteTodo(id)}>Delete</Button>
+      </Item>
     ))}
-  </ul>
+  </List>
 );
 
 export default TodoList;
