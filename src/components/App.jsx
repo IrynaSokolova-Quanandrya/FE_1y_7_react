@@ -1,22 +1,18 @@
-import {Header} from './Header/Header';
+import { Component } from "react"
+import { Form } from "./Form/Form";
 
-export const App = () => {
-  return (
-    <>
-    <Header text="Logo"/>
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-    </>
-    
-  );
+export class App extends Component {
+  state={
+    formData: null
+  }
+  getFormData = (data)=>{
+    this.setState({formData: data})
+  }
+
+  render(){
+    return (
+      <Form onChange={this.getFormData}/>
+      
+    );
+  }
 };
