@@ -3,7 +3,8 @@ import { Component } from "react";
 export class Form extends Component{
     state = {
         name: '',
-        tag: ''
+        tag: '',
+        text: ''
       }
 
       handelInput = (e)=>{
@@ -23,7 +24,8 @@ export class Form extends Component{
       reset = ()=>{
         this.setState({
             name: '',
-            tag: ''
+            tag: '',
+            text:''
         })
       }
     render(){
@@ -37,7 +39,10 @@ export class Form extends Component{
           Tag
           <input id='tag' type="text" name='tag' value={this.state.tag} onChange={this.handelInput}/>
         </label>
-        <button type="submit">Submit</button>
+        <label >
+            <textarea name='text' value={this.state.text} onChange={this.handelInput}>Що я повинен зробити</textarea>
+        </label>
+        <button type="submit">Додати</button>
       </form>
         )
     }
