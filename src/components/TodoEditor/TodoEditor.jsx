@@ -1,5 +1,6 @@
 import { Component } from "react";
-
+import { Form, Textarea } from "./TodoEditor.styled";
+import { Button } from "components/TodoList/TodoList.styled";
 export class TodoEditor extends Component{
     state={
         textValue: '',
@@ -28,46 +29,10 @@ export class TodoEditor extends Component{
 
     render(){
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>Напишіть свою задачу                    
-                    <textarea value={this.state.textValue} onChange={this.handleChange}/>                    
-                </label>
-                <button type="submit">Create</button>
-            <h2>Level</h2>
-            <label>
-                <input 
-                    type="radio" 
-                    name="junior" 
-                    checked={this.state.level === 'junior'} 
-                    onChange={this.handleRadioChange}/>  
-                junior  
-            </label>
-            <label>
-                <input 
-                    type="radio" 
-                    name="middle" 
-                    checked={this.state.level === 'middle'} 
-                    onChange={this.handleRadioChange}/> 
-                middle   
-            </label>
-            <label>
-                <input 
-                    type="radio" 
-                    name="senior" 
-                    checked={this.state.level === 'senior'} 
-                    onChange={this.handleRadioChange}/>   
-                senior 
-            </label>  
-
-            <label>
-                <input 
-                    type="checkbox" 
-                    name="licence" 
-                    checked={this.state.licence}
-                    onChange={this.handleChecked}/>
-                Погоджуюсь з умовами договору
-            </label>  
-            </form>
+            <Form onSubmit={this.handleSubmit}>                   
+                    <Textarea value={this.state.textValue} onChange={this.handleChange}/>                    
+                <Button type="submit">Create</Button> 
+            </Form>
         )
     }
 }
