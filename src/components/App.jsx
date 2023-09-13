@@ -6,15 +6,7 @@ import { TodoEditor } from "./TodoEditor/TodoEditor";
 import { Filter } from "./Filter/Filter";
 import { InfoBox } from "./App.styled";
 import { nanoid } from "nanoid";
-/**
- * декілька форм та однаковий id
- * створюємо нову форму TodoEditor
- * додаємо нові завдання в стейт не мутуючи масиву
- * видаляємо завдання не мутуючи масиву
- * 
- * radio
- * чекбокси
- */
+
 export class App extends Component {
   
   state={
@@ -35,6 +27,12 @@ export class App extends Component {
     }
   })
   }
+
+  deleteTodo = todoId => {
+    this.setState(prevState => ({
+        todos: prevState.todos.filter(todo => todo.id !== todoId),
+    }));
+};
 
   toggleCompleted = todoId => {
       this.setState(({ todos }) => ({
