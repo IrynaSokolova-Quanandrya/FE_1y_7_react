@@ -1,5 +1,5 @@
-import React from 'react';
-import {List, Item, Text, Button} from './TodoList.styled';
+import React, {Component} from 'react';
+import { List, Item, Text, Button } from './TodoList.styled';
 
 const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
   <List>
@@ -16,10 +16,28 @@ const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
           onClick={() => onDeleteTodo(id)}
         >
           Delete
-          </Button>
+        </Button>
       </Item>
     ))}
   </List>
 );
 
-export default TodoList;
+class LoginForm extends Component {
+  handleSubmit = evt => {
+    evt.preventDefault();
+    const formFields = evt.currentTarget.elements;
+    console.log(formFields);
+  }; 
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" name="login" />
+        <input type="password" name="password" />
+        <button type="submit">Login</button>
+      </form>
+    );
+  }
+ }
+ 
+
+export default TodoList, LoginForm;
