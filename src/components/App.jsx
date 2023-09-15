@@ -6,11 +6,32 @@ import { TodoEditor } from "./TodoEditor/TodoEditor";
 import { Filter } from "./Filter/Filter";
 import { InfoBox } from "./App.styled";
 import { nanoid } from "nanoid";
-
+/**
+ * життєвий цикл
+ * фаза монтування componentDidMount
+ * фаза оновлення componentDidUpdate
+ * додавання завдать в lockalStorage: 
+   приклад з фільтром коли стейт не оновлюється 
+   і з видаленням/додаванням завдань
+ * як зациклити компонент
+ * як взяти тудушки з локального сховища
+ * перевірка на null
+ * модальне вікно 
+ * стейт функціоналу модального вікна зберігаємо
+    в тому компоненті в якому його використовуємо
+ * this.prop.children
+ * z-index і div.#modal-root
+ * createPortal
+ * слухач на window keуdown
+ * прибираємо після себе
+   фаза демонтування componentWillUnmount
+ * закриття по бекдропу
+ * оптимізація з методом shouldComponentUpdate
+ */
 export class App extends Component {
   
   state={
-    todos: initialTodos,
+    todos: [],
     filter: '',
   }
  
@@ -63,7 +84,31 @@ export class App extends Component {
       0,
     );
   };
-  render(){
+
+  componentDidMount(){
+    console.log('Виклик componentDidMount');
+
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos);
+    
+    if(parsedTodos){
+      this.setState({
+        todos: parsedTodos
+      })
+    }
+}
+
+componentDidUpdate(prevProps, prevState){
+  const {todos} = this.state
+
+  if(prevState.todos !== todos){
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }  
+
+}
+
+render(){
+    console.log('Виклик render');
     const { todos, filter } = this.state;
     const totalTodoCount = todos.length;
     const completedTodoCount = this.calculateCompletedTodos();

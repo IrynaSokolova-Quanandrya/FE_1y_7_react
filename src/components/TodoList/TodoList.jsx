@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { List, Item, Text, Button } from './TodoList.styled';
 
 const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
@@ -22,22 +22,7 @@ const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
   </List>
 );
 
-class LoginForm extends Component {
-  handleSubmit = evt => {
-    evt.preventDefault();
-    const formFields = evt.currentTarget.elements;
-    console.log(formFields);
-  }; 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" name="login" />
-        <input type="password" name="password" />
-        <button type="submit">Login</button>
-      </form>
-    );
-  }
- }
+
  
 
-export default TodoList, LoginForm;
+export default TodoList;

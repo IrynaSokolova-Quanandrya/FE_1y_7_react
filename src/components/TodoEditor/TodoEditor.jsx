@@ -4,8 +4,6 @@ import { Button } from "components/TodoList/TodoList.styled";
 export class TodoEditor extends Component{
     state={
         textValue: '',
-        level: 'junior',
-        licence: 'false'
     }
 
     handleChange = (e)=> {
@@ -19,6 +17,9 @@ export class TodoEditor extends Component{
     handleSubmit=(e)=>{
         e.preventDefault();
         this.props.addTodo(this.state.textValue)
+        this.setState({
+            textValue: ''
+        })
     }
 
     handleChecked = (e)=>{
@@ -27,7 +28,10 @@ export class TodoEditor extends Component{
         })
     }
 
+    
+
     render(){
+        
         return (
             <Form onSubmit={this.handleSubmit}>                   
                     <Textarea value={this.state.textValue} onChange={this.handleChange}/>                    
