@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { createPortal } from "react-dom";
 import { GlobalStyle } from "Global.styled";
 import TodoList from "./TodoList/TodoList";
 import initialTodos from './TodoList/todos.json';
@@ -6,33 +7,16 @@ import { TodoEditor } from "./TodoEditor/TodoEditor";
 import { Filter } from "./Filter/Filter";
 import { InfoBox } from "./App.styled";
 import { nanoid } from "nanoid";
-/**
- * життєвий цикл
- * фаза монтування componentDidMount
- * фаза оновлення componentDidUpdate
- * додавання завдать в lockalStorage: 
-   приклад з фільтром коли стейт не оновлюється 
-   і з видаленням/додаванням завдань
- * як зациклити компонент
- * як взяти тудушки з локального сховища
- * перевірка на null
- * модальне вікно 
- * стейт функціоналу модального вікна зберігаємо
-    в тому компоненті в якому його використовуємо
- * this.prop.children
- * z-index і div.#modal-root
- * createPortal
- * слухач на window keуdown
- * прибираємо після себе
-   фаза демонтування componentWillUnmount
- * закриття по бекдропу
- * оптимізація з методом shouldComponentUpdate
- */
+import { Modal } from "./Modal/Modal";
+
+const modalRoot=document.querySelector('#modal-root');
+
 export class App extends Component {
   
   state={
     todos: [],
     filter: '',
+    isOpen: false
   }
  
   addTodo = (text)=>{
@@ -85,36 +69,36 @@ export class App extends Component {
     );
   };
 
-  componentDidMount(){
-    console.log('Виклик componentDidMount');
+  toggleModal=()=>{
+    this.setState(prevState=>({isOpen: !prevState.isOpen})
+    )
+  }
 
-    const todos = localStorage.getItem('todos');
-    const parsedTodos = JSON.parse(todos);
+componentDidMount(){
     
-    if(parsedTodos){
-      this.setState({
-        todos: parsedTodos
-      })
-    }
 }
 
 componentDidUpdate(prevProps, prevState){
-  const {todos} = this.state
+   
 
-  if(prevState.todos !== todos){
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }  
-
+}
+componentWillUnmount(){
+  
 }
 
 render(){
-    console.log('Виклик render');
     const { todos, filter } = this.state;
     const totalTodoCount = todos.length;
     const completedTodoCount = this.calculateCompletedTodos();
     const visibleTodos = this.getVisibleTodos();
     return (
       <>
+      <button type="button" onClick={this.toggleModal}>Open modal</button>
+      {this.state.isOpen && createPortal(<Modal onClose={this.toggleModal}/>, modalRoot)}
+      
+      
+      
+      
       <InfoBox>
           <p>Вього завдань: {totalTodoCount}</p>
           <p>Виконано: {completedTodoCount}</p>

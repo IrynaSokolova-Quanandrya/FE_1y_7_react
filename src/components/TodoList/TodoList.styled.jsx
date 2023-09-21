@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const List = styled.ul`
+position: absolute;
   width: 600px;
 `
 export const Item = styled.li`

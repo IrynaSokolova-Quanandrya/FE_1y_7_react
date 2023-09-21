@@ -3,8 +3,9 @@ import { List, Item, Text, Button } from './TodoList.styled';
 
 const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
   <List>
-    {todos.map(({ id, text, completed }) => (
-      <Item key={id}>
+    {todos.map(({ id, text, completed }) =>{ 
+      console.log(completed)
+   return (  <Item key={id}>
         <input
           type="checkbox"
           checked={completed}
@@ -18,7 +19,7 @@ const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
           Delete
         </Button>
       </Item>
-    ))}
+    )})}
   </List>
 );
 
