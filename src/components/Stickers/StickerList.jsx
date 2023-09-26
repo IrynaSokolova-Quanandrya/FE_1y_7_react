@@ -5,7 +5,7 @@ export function StickerList({stickers, onGetLabel}) {
         <ul>
             {stickers.map(({img, label})=>{
             return(
-            <li>
+            <li key={label}>
                 <Sticker 
                     onGetLabel={onGetLabel} 
                     img={img} 

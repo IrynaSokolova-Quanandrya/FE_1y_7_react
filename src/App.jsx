@@ -1,19 +1,25 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import { GlobalStyle } from './Global.styled';
 import { StickerList } from 'components/Stickers/StickerList';
 import stickers from './components/Stickers/stickers.json';
 
 
-export class App extends Component {
+export class App extends PureComponent {
   state={
     stickerLabel: null
   }
 
+  // shouldComponentUpdate(prevProps, prevState){
+  //   return this.state.stickerLabel !== prevState.stickerLabel
+  // }
+
   labelHandler = label => {
+    console.log(label);
     this.setState({stickerLabel:label})
   }
   
   render(){
+    console.log('Ререндер');
     const {stickerLabel} = this.state;
     return(
       <>
