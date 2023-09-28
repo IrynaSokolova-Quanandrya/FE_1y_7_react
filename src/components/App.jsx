@@ -1,26 +1,27 @@
 import { Component } from "react";
 import { GlobalStyle } from "Global.styled";
+import PokemonForm from "./Pokemon/PokemonForm";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class App extends Component {
   
   state= {
     pokemon: null,
-    loading: false
   }
 
- componentDidMount(){
-  this.setState({loading: true})
-  fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-  .then(response=>response.json())
-  .then(pokemon=>this.setState({pokemon}))
-  .finally(()=>this.setState({loading: false}))
+ getPokemonName=(name)=>{
+  this.setState({pokemon: name})
  }
 
   render(){
     return (
       <>
-      {this.state.loading && <p>Завантажуємо...</p>}
-      {this.state.pokemon && <p>Отримали покемона</p>}
+      <PokemonForm onSubmit={this.getPokemonName}/>
+      <ToastContainer
+            position="top-right"
+            autoClose={5000}
+      />
       <GlobalStyle/>
       </>
     );
