@@ -22,7 +22,7 @@ export default class PokemonForm extends Component {
     }
 
     this.props.onSubmit(this.state.pokemonName);
-    this.setState({ pokemonName: '' });
+    // this.setState({ pokemonName: '' });
   };
 
   render() {
