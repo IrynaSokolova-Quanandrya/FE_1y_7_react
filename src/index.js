@@ -1,26 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
-import { ThemeProvider } from 'styled-components';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import AuthProvider from './contexts/auth/Provider';
+import 'modern-normalize/modern-normalize.css';
+import './index.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-const theme = {
-  colors:{
-    textColor: '#000',
-    bgColor: '#fff',
-    warning: 'orange',
-    success: 'green',
-    error: 'red',
-    grey: 'grey',
-    button: '#21a912',
-    accent: ' #7112ba'
-  }
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
-     <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider> 
-  </React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root'),
 );
