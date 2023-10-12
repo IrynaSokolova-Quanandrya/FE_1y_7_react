@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import PokemonForm from '../components/Pokemon/Form.js';
 import PokemonInfo from '../components/Pokemon/Info.js';
 
-export default class PokemonView extends Component {
+export  class PokemonView extends Component {
   state = {
     pokemonName: '',
   };
