@@ -1,5 +1,5 @@
-// import {SignupForm} from './components/SignupForm/SignupForm';
-import {Counter} from './components/Counter/Counter';
+import {SignupForm} from './components/SignupForm/SignupForm';
+// import {Counter} from './components/Counter/Counter';
 // import {Clock} from './components/Clock/Clock';
 // import {PokemonView} from './views/PokemonView';
 
@@ -14,8 +14,8 @@ const containerStyles = {
 export default function App() {
   return (
     <div style={containerStyles}>
-          {/* <SignupForm />         */}
-          <Counter />        
+          <SignupForm />        
+          {/* <Counter />         */}
           {/* <Clock />         */}
           {/* <PokemonView />        */}
     </div>
