@@ -1,7 +1,7 @@
 // import {SignupForm} from './components/SignupForm/SignupForm';
 // import {Counter} from './components/Counter/Counter';
-// import {Clock} from './components/Clock/Clock';
-import {PokemonView} from './views/PokemonView';
+import {Clock} from './components/Clock/Clock';
+// import {PokemonView} from './views/PokemonView';
 
 /**
  * useEffect як componentWillUnmount - Clock
@@ -23,8 +23,8 @@ export default function App() {
     <div style={containerStyles}>
           {/* <SignupForm />         */}
           {/* <Counter />         */}
-          {/* <Clock />         */}
-          <PokemonView />       
+          <Clock />        
+          {/* <PokemonView />        */}
     </div>
   );
 }

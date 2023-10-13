@@ -17,6 +17,10 @@ useEffect(()=>{
   console.log('Виклик useEffect ' + Date.now());
    const totalClicks = counterA + counterB;
   document.title = `Всього клікнули ${totalClicks} разів`;
+
+  return ()=>{
+    
+  }
 }, [counterA, counterB])
 
 return (
