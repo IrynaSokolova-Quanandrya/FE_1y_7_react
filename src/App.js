@@ -1,13 +1,15 @@
 // import {SignupForm} from './components/SignupForm/SignupForm';
 // import {Counter} from './components/Counter/Counter';
+import { Friends } from 'components/Friends/Friends';
 import {Clock} from './components/Clock/Clock';
 // import {PokemonView} from './views/PokemonView';
 
 /**
- * useEffect як componentWillUnmount - Clock
- * useRef - Clock
- * пропуск першого рендеру - pokemon
+ * useRef - Clock, 
+ * як виклик в апдейт але один раз, 
+ * як значення value при сабміті форми
  * useReduser в компоненті Counter (пілимо з нуля, щоб не забули)
+ * useMemo фільтр друзів
  */
 
 const containerStyles = {
@@ -23,8 +25,9 @@ export default function App() {
     <div style={containerStyles}>
           {/* <SignupForm />         */}
           {/* <Counter />         */}
-          <Clock />        
+          {/* <Clock />         */}
           {/* <PokemonView />        */}
+          <Friends/>
     </div>
   );
 }
