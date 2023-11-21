@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo} from 'react';
 
 const initalFriends = [
   'Kolby Thompson',
@@ -109,9 +109,13 @@ export function Friends() {
   const [filter, setFilter] = useState('');
 
 
-  const visibleFriends = friends.filter(friend =>
-    friend.toLowerCase().includes(filter),
-  );
+//   const visibleFriends = friends.filter((friend) => {
+// console.log('Виклик visibleFriends');
+//     return friend.toLowerCase().includes(filter)
+//   }
+//   );
+
+  const visibleFriends = useMemo(() => friends.filter(friend => friend.toLowerCase().includes(filter)), [filter, friends])
 
   return (
     <div>
