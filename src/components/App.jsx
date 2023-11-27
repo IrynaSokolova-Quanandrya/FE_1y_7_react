@@ -1,7 +1,8 @@
-import { GlobalStyle } from "Global.styled";
-import { Route, Routes} from "react-router-dom";
-import { Home } from "./pages/Home";
-import { BookList } from "./pages/BookList";
+// import { GlobalStyle } from "Global.styled";
+import { Outlet } from "react-router-dom";
+import { Navigation } from "./AppNav";
+import { Container} from "Global.styled";
+
 // useParams
 // useLoaderData
 // useNavigate
@@ -9,11 +10,11 @@ import { BookList } from "./pages/BookList";
 export const App = () => {
   return(
     <>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/books' element={<BookList/>}/>
-        </Routes>
-        <GlobalStyle/>
+        <Container>   
+                <Navigation/>              
+            <Outlet></Outlet>
+        </Container>
+        {/* <GlobalStyle/> */}
     </>
   )
  };

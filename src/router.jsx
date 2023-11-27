@@ -1,10 +1,11 @@
 import { BookList } from "components/pages/BookList";
 import { Home } from "components/pages/Home";
-import { Layout } from "components/Layout";
+// import { Layout } from "components/Layout";
 import { NotFound } from "components/pages/NotFound";
 import { createBrowserRouter } from "react-router-dom";
 import { fetchBooks, fetchBooksById } from "service/fetchBooks";
 import { Book } from "components/pages/Book";
+import { App } from "components/App";
 /**
  * createBrowserRouter
  * path
@@ -16,7 +17,7 @@ import { Book } from "components/pages/Book";
 export const router = createBrowserRouter([
    {
     path: '/',
-    element: <Layout/>,
+    element: <App/>,
     errorElement: <NotFound/>,
     children: [
         {

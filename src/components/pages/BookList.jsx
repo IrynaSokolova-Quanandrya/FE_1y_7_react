@@ -14,8 +14,7 @@ export function BookList() {
     // }, [])
     
     return (
-        <>
-        {console.log(books)}
+        <div>
         <button type='button 'onClick={()=>goBack(-1)}>Go back</button>
         <h1>BookList</h1>
         {books && <ul className="bookList">
@@ -25,6 +24,6 @@ export function BookList() {
             </li>
            ))}
         </ul>}        
-        </>
+        </div>
     )
 }
