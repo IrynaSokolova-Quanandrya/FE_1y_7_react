@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -40,3 +40,12 @@ body {
     padding: 0;
   }
 `
+
+export const Container = styled.div`  
+  width: 800px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+`
+
