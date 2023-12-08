@@ -7,16 +7,11 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from "./theme";
 import { router } from 'router';
 
-// RouterProvider router={router}>
-// rout.jsx
-//
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-     <ThemeProvider theme={theme}>
+   <RouterProvider router={router}>
       <App />
-    </ThemeProvider> 
-    </RouterProvider>
+  </RouterProvider>
   </React.StrictMode>
 );

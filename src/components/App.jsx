@@ -6,13 +6,15 @@ import { Container} from "Global.styled";
 // useParams
 // useLoaderData
 // useNavigate
+//useRoutError
 
 export const App = () => {
   return(
     <>
         <Container>   
-                <Navigation/>              
-            <Outlet></Outlet>
+          <Navigation/>
+          <Outlet/>
+          <footer>footer</footer>
         </Container>
         {/* <GlobalStyle/> */}
     </>

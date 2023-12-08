@@ -1,4 +1,4 @@
-import logo  from "../../react-router-color.png";
+import logo  from "react-router-color.png";
 
 export function Home() {    
     return (

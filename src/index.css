@@ -49,6 +49,9 @@ nav{
 .active{
   color: blueviolet;
 }
+.loader{
+  color: red;
+}
 .navList{
   display: flex;
 }

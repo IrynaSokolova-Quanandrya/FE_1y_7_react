@@ -1,41 +1,45 @@
-import { BookList } from "components/pages/BookList";
-import { Home } from "components/pages/Home";
-// import { Layout } from "components/Layout";
-import { NotFound } from "components/pages/NotFound";
+import { App } from "components/App";
+import { Author } from "components/Author";
+import { Book } from "pages/Book";
+import { BookList } from "pages/BookList";
+import { Home } from "pages/Home";
+import { NotFound } from "pages/NotFound";
 import { createBrowserRouter } from "react-router-dom";
 import { fetchBooks, fetchBooksById } from "service/fetchBooks";
-import { Book } from "components/pages/Book";
-import { App } from "components/App";
+
 /**
- * createBrowserRouter
- * path
- * element
- * errorElement
- * children
- * index
+ * передача другу посилання на конкретну книгу 
+ * робимо вкладені маршрути як елементи поточної сторінки
+ * useNavigate для імітації логінізації
+ * useLocation для передачі стейту попередньої локації
  */
+
 export const router = createBrowserRouter([
-   {
-    path: '/',
-    element: <App/>,
-    errorElement: <NotFound/>,
-    children: [
-        {
-            element: <Home/>,
-            index: true,
-        },
-        {
-            path: '/books',
-            element: <BookList/>,
-            loader: fetchBooks,
-
-        },
-        {
-            path: '/books/:bookId',
-            element: <Book/>,
-            loader: fetchBooksById,
-
-        }
-    ]
-   }
+    {
+        path: '/',
+        element: <App/>,
+        errorElement: <NotFound/>,
+        children: [
+            {
+                index: true,
+                element: <Home/>
+            },
+            {
+                path: '/books',
+                element: <BookList/>,
+                loader: fetchBooks,
+            },
+            {
+                path: '/books/:bookId',
+                element: <Book/>,
+                loader: fetchBooksById,
+                children: [
+                    {
+                        path: '/books/:bookId/author',
+                        element: <Author/>
+                    }
+                ]
+            }
+            ]      
+    }
 ])
