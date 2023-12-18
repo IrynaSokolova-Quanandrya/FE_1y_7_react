@@ -3,10 +3,12 @@ import { Outlet } from "react-router-dom";
 import { Navigation } from "./AppNav";
 import { Container} from "Global.styled";
 
-// useParams
-// useLoaderData
-// useNavigate
-//useRoutError
+/**
+ * useNavigate та автоматичне повернення додому
+ * ліниве завантаження компонентів
+ * useLocation та об'єкт місцезнаходження
+ * useOutletContext 
+ */
 
 export const App = () => {
   return(

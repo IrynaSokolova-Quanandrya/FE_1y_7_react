@@ -1,4 +1,4 @@
-import { useParams, useLoaderData, Outlet, Link, useNavigation} from "react-router-dom"
+import { useParams, useLoaderData, Outlet, Link, useLocation} from "react-router-dom"
 
 export function Book() {
 const {bookId} = useParams();
@@ -12,7 +12,7 @@ const {image, title, author, aboutAuthor, description, rating} = useLoaderData()
             <p>{rating}</p>
 
             <Link to={`/books/${bookId}/author`}> Про автора</Link>
-            <Outlet context={aboutAuthor}/>
+            <Outlet/>
         </div>
     )
 }
