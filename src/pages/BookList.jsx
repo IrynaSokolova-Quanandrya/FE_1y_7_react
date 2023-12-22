@@ -1,8 +1,9 @@
-import { useLoaderData, useNavigate, NavLink, useSearchParams} from "react-router-dom";
+import { useLoaderData, useNavigate, NavLink, useSearchParams, useLocation} from "react-router-dom";
 
-export  function BookList() {
+export default function BookList() {
     const books = useLoaderData();
     const goBack = useNavigate();
+    const location = useLocation();
     
     const [searchParams, setSearchParams] = useSearchParams();
     const searchParam = searchParams.get('title') ?? '';
@@ -22,7 +23,7 @@ export  function BookList() {
                 <ul className="bookList">
                 {visibleBooks.map(({id, title, author})=>(
                     <li key={id}> 
-                    <NavLink to={`/books/${id}`}>{id} - {title} - {author}</NavLink>
+                    <NavLink to={`/books/${id}`} state={{from: location}} >{id} - {title} - {author}</NavLink>
                     </li>
                 ))}
                 </ul>

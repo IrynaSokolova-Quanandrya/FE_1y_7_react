@@ -1,6 +1,6 @@
 import logo  from "react-router-color.png";
 
-export function Home() {    
+export default function Home() {    
     return (
         <div className="thumb">
             <h1>Home page</h1>

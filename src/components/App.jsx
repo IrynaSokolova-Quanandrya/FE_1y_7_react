@@ -1,24 +1,20 @@
-// import { GlobalStyle } from "Global.styled";
-import { Outlet } from "react-router-dom";
+import { GlobalStyle } from "Global.styled";
+import {Suspense } from 'react';
+import { Outlet, useLocation } from "react-router-dom";
 import { Navigation } from "./AppNav";
 import { Container} from "Global.styled";
 
-/**
- * useNavigate та автоматичне повернення додому
- * ліниве завантаження компонентів
- * useLocation та об'єкт місцезнаходження
- * useOutletContext 
- */
-
-export const App = () => {
+const App = () => {
   return(
-    <>
+    <Suspense fallback={<div>Loader...</div>}>
         <Container>   
           <Navigation/>
           <Outlet/>
           <footer>footer</footer>
         </Container>
-        {/* <GlobalStyle/> */}
-    </>
+        <GlobalStyle/>
+    </Suspense>
   )
  };
+
+ export default App;

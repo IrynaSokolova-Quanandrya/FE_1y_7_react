@@ -1,20 +1,15 @@
-import { App } from "components/App";
-import { Author } from "components/Author";
-import { Book } from "pages/Book";
-import { BookList } from "pages/BookList";
-import { Home } from "pages/Home";
-import { NotFound } from "pages/NotFound";
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { fetchBooks, fetchBooksById } from "service/fetchBooks";
 
 
+const App = lazy(()=>import('./components/App'));
+const Home = lazy(()=>import('./pages/Home'));
+const BookList = lazy(()=>import('./pages/BookList'));
+const Book = lazy(()=>import('./pages/Book'));
+const Author = lazy(()=>import('./components/Author'));
+const NotFound = lazy(()=>import('./pages/NotFound'));
 
-/**
- * передача другу посилання на конкретну книгу 
- * робимо вкладені маршрути як елементи поточної сторінки
- * useNavigate для імітації логінізації
- * useLocation для передачі стейту попередньої локації
- */
 
 export const router = createBrowserRouter([
     {
@@ -38,7 +33,7 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: '/books/:bookId/author',
-                        element: <Author/>
+                        element: <Author/>,
                     }
                 ]
             }
