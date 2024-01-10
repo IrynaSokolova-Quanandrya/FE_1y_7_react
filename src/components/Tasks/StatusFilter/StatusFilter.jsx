@@ -2,12 +2,12 @@ import { Button } from "../Button/Button";
 import css from "./StatusFilter.module.css";
 import { statusFilters } from "../../../redux/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFilter } from "../../../redux/actions";
+import { setStatusFilter } from "../../../redux/slices";
 
 export const StatusFilter = () => {
   const dispatch = useDispatch()
   const filter = useSelector(state=>state.filters)
-  const handelChange=(filter)=>dispatch(changeFilter(filter))
+  const handelChange=(filter)=>dispatch(setStatusFilter(filter))
   return (
     <div className={css.wrapper}>
       <Button onClick = {()=>handelChange(statusFilters.all)} selected={filter===statusFilters.all}>All</Button>
