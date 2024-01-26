@@ -19,6 +19,7 @@ export const TaskList = () => {
           return task;
       }
 })
+
   return (
     <ul className={css.list}>
       {visibleTasks.map(task => (
