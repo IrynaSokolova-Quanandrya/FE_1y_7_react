@@ -16,10 +16,6 @@ export const LogInForm = () => {
         <form onSubmit={handleSubmit}>
         <input type="text" name="name"/>
         <br />
-        <input type="email" name="email" />
-        <br />
-        <input type="password" name="passsword"/>
-        <br />
         <button type="submit">Зареєструватися</button>
     </form>
     )
