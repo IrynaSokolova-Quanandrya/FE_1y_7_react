@@ -22,6 +22,7 @@ export const selectVisibleTasks = createSelector([selectTasks, selectFiltersStat
 }) 
   
 export const selectCount = createSelector([selectTasks], tasks => {
+  console.log(tasks);
     return tasks.reduce((acc, task)=>{
     if(task.completed){
       acc.completed += 1

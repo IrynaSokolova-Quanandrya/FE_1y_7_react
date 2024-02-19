@@ -1,17 +1,39 @@
-import {configureStore} from '@reduxjs/toolkit';
-import { filtersReducer, tasksReducer } from './slices';
-import { tasksApi } from './taskAPI';
+import { configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { filtersReducer, tasksReducer } from './tasks/slices';
+import { authSlice } from './auth/slice';
+
+const middleware = (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  });
+
+// const authPersistConfig = {
+//   key: 'auth',
+//   storage,
+//   whitelist: ['token'],
+// };
 
 export const store = configureStore({
-  reducer:{
+  reducer: {
+    // auth: persistReducer(authPersistConfig, authSlice.reducer),
     tasks: tasksReducer,
-    filters: filtersReducer,
-    [tasksApi.reducerPath]: tasksApi.reducer,
+    filters: filtersReducer, 
   },
-  // Adding the api middleware enables caching, invalidation, polling,
-  // and other useful features of `rtk-query`.
-  middleware: (getDefaultMiddleware) =>
-    [...getDefaultMiddleware(),tasksApi.middleware],
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 })
 
 
+export const persistor = persistStore(store);

@@ -1,15 +1,13 @@
 import { MdClose } from "react-icons/md";
 import css from "./Task.module.css";
 import { useDispatch } from "react-redux";
-import { deleteTask, toggleCompleted } from "../../../redux/operations";
-import { useDeleteTaskMutation } from "../../../redux/taskAPI";
+import { deleteTask, toggleCompleted } from "../../../redux/tasks/operations";
 
 export const Task = ({ task }) => {
   const dispatch = useDispatch()
-  const [deletTask, {isLoading}] = useDeleteTaskMutation();
 
   
-  // const handleDelete = ()=>dispatch(deleteTask(task));
+  const handleDelete = ()=>dispatch(deleteTask(task));
   const handleToggle =()=>dispatch(toggleCompleted(task));
   return (
     <div className={css.wrapper}>
@@ -21,7 +19,7 @@ export const Task = ({ task }) => {
       />
       <p className={css.text}>{task.text}</p>
       <button className={css.btn} 
-      onClick={()=>deletTask(task.id)}
+      onClick={handleDelete}
       >
         <MdClose size={24} />
       </button>

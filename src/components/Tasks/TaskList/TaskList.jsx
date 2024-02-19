@@ -1,28 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Task } from "../Task/Task";
 import css from "./TaskList.module.css";
-import { selectVisibleTasks } from "../../../redux/selectors";
+import { selectVisibleTasks } from "../../../redux/tasks/selectors";
 import { useEffect } from "react";
-import { fetchTasks } from "../../../redux/operations";
-import {useGetTasksQuery} from '../../../redux/taskAPI'
+import { fetchTasks } from "../../../redux/tasks/operations";
 
 
 export const TaskList = () => {
   const dispatch = useDispatch()
-  // const tasks = useSelector(selectVisibleTasks)
-  const {data: tasks, isFetching, isError, isSuccess} = useGetTasksQuery()
-  
- 
+  const tasks = useSelector(selectVisibleTasks) 
 
    useEffect(()=>{
     dispatch(fetchTasks())
    },[dispatch])
 
-
   return (
-    <>
-      {isFetching && <p>Loading...</p>}
-     { isSuccess && tasks &&
+    <>     
+     {tasks &&
     <ul className={css.list}>
       {tasks.map(task => (
         <li className={css.listItem} key={task.id}>
@@ -30,7 +24,6 @@ export const TaskList = () => {
         </li>
       ))}
         </ul>}
-      {isError && <p>Oops!</p>}
     </>
   );
 };
