@@ -19,15 +19,15 @@ const middleware = (getDefaultMiddleware) => getDefaultMiddleware({
     },
   });
 
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
 export const store = configureStore({
   reducer: {
-    // auth: persistReducer(authPersistConfig, authSlice.reducer),
+    auth: persistReducer(authPersistConfig, authSlice.reducer),
     tasks: tasksReducer,
     filters: filtersReducer, 
   },

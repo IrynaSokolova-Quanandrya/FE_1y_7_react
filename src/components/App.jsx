@@ -1,5 +1,6 @@
-import { Layout } from "./Tasks/Layout/Layout";
-import { AppBar } from "./Tasks/AppBar/AppBar";
+import { Outlet } from "react-router-dom";
+import { Layout } from "./Layout";
+import { AppBar } from "./AppBar/AppBar";
 import { TaskForm } from "./Tasks/TaskForm/TaskForm";
 import { TaskList } from "./Tasks/TaskList/TaskList";
 
@@ -7,8 +8,7 @@ export const App = () => {
   return (    
     <Layout>
       <AppBar />
-      <TaskForm />
-      <TaskList />
+      <Outlet/>
     </Layout>
   );
 };
