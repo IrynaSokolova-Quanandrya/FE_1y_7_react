@@ -1,4 +1,5 @@
 import { App } from "components/App";
+import { RestrictedRout } from "components/RestrictedRout";
 import { Home, Login, Register, Tasks } from 'pages';
 import { createBrowserRouter } from "react-router-dom"
 
@@ -17,7 +18,7 @@ export const tasksRouter = createBrowserRouter([
     },
     {
         path: '/login',
-        element: <Login/>
+        element: <RestrictedRout element={Login} redirectTo="/tasks"/>
     },
     {
         path: '/register',
